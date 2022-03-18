@@ -34,4 +34,23 @@ function moveTwoChars(word) {
   console.log("After attaching 2 chars to end: " + translatedWord);
 }
 
+function findFirstConsonants(word) {
+  let firstConsonants = "";
+  // Loop through the word
+  for (let i = 0; i < word.length; i++) {
+    // Saves letters if it is a consonant.
+    firstConsonants = firstConsonants.concat(word[i]);
+    if (
+      word[i] === "a" ||
+      word[i] === "e" ||
+      word[i] === "i" ||
+      word[i] === "o" ||
+      word[i] === "u"
+    ) {
+      // Stops saving letters when hits a vowel.
+      break;
+    }
+    console.log("String before vowel found: " + firstConsonants);
+  }
+}
 // User Interface logic
