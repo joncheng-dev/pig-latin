@@ -36,8 +36,12 @@ function moveTwoChars(word) {
 
 function findFirstConsonants(word) {
   let firstConsonants = "";
+  let consonantsRemoved = "";
+  let translatedWord = "";
+  let indexLocation = 0;
   // Loop through the word
   for (let i = 0; i < word.length; i++) {
+    indexLocation++;
     // Saves letters if it is a consonant.
     firstConsonants = firstConsonants.concat(word[i]);
     if (
@@ -52,5 +56,11 @@ function findFirstConsonants(word) {
     }
     console.log("String before vowel found: " + firstConsonants);
   }
+  consonantsRemoved = word.substring(indexLocation - 1);
+  console.log("Word with consonants removed: " + consonantsRemoved);
+  translatedWord = consonantsRemoved.concat(
+    word.substring(0, indexLocation - 1)
+  );
+  console.log("Translated word: Consonants moved to end: " + translatedWord);
 }
 // User Interface logic
