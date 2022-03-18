@@ -4,12 +4,6 @@
 function pigLatin(word) {
   let firstCharRemoved = word;
   let translatedWord;
-  // // Remove character from the string.
-  // firstCharRemoved = word.slice(1);
-  // console.log("After removing the first character: " + firstCharRemoved);
-  // // Concatenate this character to the end.
-  // translatedWord = firstCharRemoved.concat(word[0]);
-  // console.log("After attaching first char. to end: " + translatedWord);
   if (
     word[0] === "a" ||
     word[0] === "e" ||
@@ -20,7 +14,13 @@ function pigLatin(word) {
     translatedWord = word.concat("way");
     return translatedWord;
   } else {
-    return false;
+    // Remove character from the string.
+    firstCharRemoved = word.slice(1);
+    console.log("After removing the first character: " + firstCharRemoved);
+    // Concatenate this character to the end.
+    translatedWord = firstCharRemoved.concat(word[0]);
+    console.log("After attaching first char. to end: " + translatedWord);
+    return translatedWord;
   }
 }
 
