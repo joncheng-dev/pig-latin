@@ -15,13 +15,23 @@ function pigLatin(word) {
     return translatedWord;
   } else {
     // Remove character from the string.
-    firstCharRemoved = word.slice(1);
+    firstCharRemoved = word.substring(1);
     console.log("After removing the first character: " + firstCharRemoved);
     // Concatenate this character to the end.
     translatedWord = firstCharRemoved.concat(word[0]);
     console.log("After attaching first char. to end: " + translatedWord);
     return translatedWord;
   }
+}
+
+function moveTwoChars(word) {
+  let twoCharsRemoved = word;
+  let translatedWord;
+  twoCharsRemoved = word.substring(2);
+  console.log("After removing first 2 chars: " + twoCharsRemoved);
+  // Add these two characters to the end of the word.
+  translatedWord = twoCharsRemoved.concat(word.substring(0, 2));
+  console.log("After attaching 2 chars to end: " + translatedWord);
 }
 
 // User Interface logic
