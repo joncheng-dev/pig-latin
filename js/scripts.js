@@ -1,13 +1,13 @@
 // Utility logic
 
 // Business logic
-function pigLatin(char) {
+function pigLatin(word) {
   if (
-    char === "a" ||
-    char === "e" ||
-    char === "i" ||
-    char === "o" ||
-    char === "u"
+    word[0] === "a" ||
+    word[0] === "e" ||
+    word[0] === "i" ||
+    word[0] === "o" ||
+    word[0] === "u"
   ) {
     return true;
   } else {
