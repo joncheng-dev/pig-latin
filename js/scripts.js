@@ -16,6 +16,13 @@ function pigLatin(word) {
     // RULE 1: If first char is a vowel, add "way" to the end. Return to user.
     translatedWord = word.concat("way");
     return translatedWord;
+  }
+  // EXCEPTION: If first char is a "q", and following vowel a "u"..
+  else if (word[0] === "q" && word[1] === "u") {
+    let moveQu = word.slice(0, 2);
+    translatedWord = word.substring(2);
+    translatedWord = translatedWord.concat(moveQu + "ay");
+    return translatedWord;
   } else {
     // RULE 2: First character is not a vowel. Find when consonants end.
     // Collect consonants.
@@ -37,20 +44,26 @@ function pigLatin(word) {
       // Saves letters if it is a consonant.
       firstConsonants = firstConsonants.concat(word[i]);
     }
-    console.log("Consonants so far: " + firstConsonants);
-    console.log("Index Loc. of first vowel: " + indexLocation);
     // Front consonants saved. Delete & add to end of word.
     if (firstConsonants === word) {
       translatedWord = word;
       // Attach "ay" to the end of this word to complete RULE 2.
       translatedWord = translatedWord.concat("ay");
+    }
+    // If the last character saved was a "q"
+    else if (firstConsonants.charAt(firstConsonants.length - 1) === "q") {
+      firstConsonants = firstConsonants.slice(0, -1);
+      // Move this to the back of the word -- firstConsonants.
+      translatedWord = word.substring(indexLocation - 1);
+      translatedWord = translatedWord.concat(firstConsonants + "ay");
+      return translatedWord;
     } else {
       translatedWord = word.substring(indexLocation);
-      translatedWord = translatedWord.concat(firstConsonants);
       // Attach "ay" to the end of this word to complete RULE 2.
-      translatedWord = translatedWord.concat("ay");
+      translatedWord = translatedWord.concat(firstConsonants + "ay");
     }
     return translatedWord;
   }
 }
+
 // User Interface logic
